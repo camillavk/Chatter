@@ -1,20 +1,22 @@
-<header>
-	<div id="logo">
+<nav>
+	<section id="logo">
 		<a href='/'>Chatter</a>
+	</section>
+	<section id="newpeep">
 	<a href="/peeps/new" class="button">Peep</a>
-	</div>
+	</section>
 	<% if current_user %>
-	<div id="signup">
+	<section id="signout">
 		Welcome, <%= current_user.name %>
 		<form method="post" action="/sessions">
 			<input type="hidden" name="_method" value="delete">
 			<input type="submit" value="Sign out" class="button">
 		</form>
-	</div>
+	</section>
 	<% else %>
-		<div id="signup">
+		<section id="signup">
 		<a href='/sessions/new' id='sign-in' class='button'>Sign in!</a>
 		<a href='/users/new' id='sign-up' class='button'>Sign up!</a>
-		</div>
+		</section>
 	<% end %>
-</header>
+</nav>
