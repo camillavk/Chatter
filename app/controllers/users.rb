@@ -1,8 +1,3 @@
-get '/users/new' do 
-	@user = User.new
-	erb :"users/new"
-end
-
 post '/users' do 
 	@user = User.new(:name => params[:name],
 							:username => params[:username],
@@ -14,6 +9,6 @@ post '/users' do
 		redirect to('/')
 	else 
 		flash.now[:errors] = @user.errors.full_messages
-		erb :"users/new"
+		erb :layout
 	end
 end

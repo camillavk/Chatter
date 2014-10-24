@@ -1,7 +1,3 @@
-get '/sessions/new' do 
-	erb :"sessions/new"
-end
-
 post '/sessions' do 
 	username = params[:username]
 	password = params[:password]
@@ -11,7 +7,7 @@ post '/sessions' do
 		redirect to('/')
 	else
 		flash[:errors] = ["The username or password is incorrect"]
-		erb :"sessions/new"
+		erb :layout
 	end
 end
 
