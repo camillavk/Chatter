@@ -1,8 +1,8 @@
-<h1>Welcome to Chitter</h1>
+<h1>Welcome to Chatter</h1>
 
-<p>Current messages:</p>
+<p>Current peeps:</p>
 <ul>
-	<% @messages.each do |message| %>
-		<%= partial :message, :locals => {:message => message } %>
+	<% @peeps.each do |peep| %>
+		<%= partial :peep, :locals => {:peep => peep } %>
 	<% end %>
 </ul>

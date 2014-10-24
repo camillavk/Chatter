@@ -11,13 +11,13 @@ feature "User adds a link" do
 	end
 
 	scenario "when browsing the homepage" do 
-		expect(Message.count).to eq(0)
+		expect(Peep.count).to eq(0)
 		visit '/'
 		sign_in('samsam', 'cat')
-		add_message("example", "testing")
-		expect(Message.count).to eq(1)
-		message = Message.first
-		expect(message.title).to eq("example")
+		add_peep("example", "testing")
+		expect(Peep.count).to eq(1)
+		peep = Peep.first
+		expect(peep.title).to eq("example")
 	end
 
 

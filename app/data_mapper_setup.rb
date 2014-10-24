@@ -1,15 +1,15 @@
-require './app/models/message'
+require './app/models/peep'
 require './app/models/user'
 
 env = ENV["RACK_ENV"] || "development"
 
-case env
+# case env
 
-when env = 'test'
-	path = "postgres://localhost/chitter_test"
-else
-	path = "postgres://zcebxyfqjphtcz:qJaf2sCOs87hDMCw5thNJEw2Zl@ec2-54-83-204-104.compute-1.amazonaws.com:5432/dftbg7cb6ffn39"
-end
+# when env = 'test'
+	path = "postgres://localhost/chatter_#{env}"
+# else
+# 	path = "postgres://zcebxyfqjphtcz:qJaf2sCOs87hDMCw5thNJEw2Zl@ec2-54-83-204-104.compute-1.amazonaws.com:5432/dftbg7cb6ffn39"
+# end
 
 DataMapper.setup(:default, path)
 

@@ -20,7 +20,7 @@ class User
 
 	validates_confirmation_of :password, :message => "Sorry, your passwords don't match"
 
-	has n, :messages
+	has n, :peeps
 
 	def password=(password)
 		@password = password 

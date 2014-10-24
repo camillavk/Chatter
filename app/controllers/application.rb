@@ -1,4 +1,4 @@
 get '/' do 
-	@messages = Message.all
+	@peeps = Peep.all
 	erb :index
 end

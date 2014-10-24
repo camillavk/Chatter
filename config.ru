@@ -1,3 +1,3 @@
-require './app/chitter'
+require './app/chatter'
 
 run Sinatra::Application

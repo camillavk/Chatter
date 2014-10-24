@@ -1,4 +1,4 @@
-post '/messages' do 
+post '/peeps' do 
 	user = User.create(:name => "Sam",
 								:username => 'samsam',
 								:email => "sam@example.com",
@@ -6,10 +6,10 @@ post '/messages' do
 								:password_confirmation => "cat")
 	title = params["title"]
 	text = params["text"].to_s
-	Message.create(:title => title, :text => text, :user_id => current_user.id)
+	Peep.create(:title => title, :text => text, :user_id => current_user.id)
 	redirect to('/')
 end
 
-get '/messages/new' do 
-	erb :"messages/new"
+get '/peeps/new' do 
+	erb :"peeps/new"
 end

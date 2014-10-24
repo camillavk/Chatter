@@ -110,7 +110,7 @@ div {
   padding: 10px;
 }
 
-  .message {
+  .peep {
     height: auto;
     background: #2182A3;
     width: auto;
@@ -126,7 +126,7 @@ div {
     text-decoration: none;
   }
     
-  .message a.title {
+  .peep a.title {
     letter-spacing: 1px;
     font-size: 2em;
     background-color: #001A4C;
@@ -140,7 +140,7 @@ div {
     text-decoration: none;
   }
 
-  .message a.title:hover {
+  .peep a.title:hover {
   background: #3cb0fd;
   background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
   background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
@@ -150,7 +150,7 @@ div {
   text-decoration: none;
   }
 
-  .message .text {
+  .peep .text {
     margin: 10px inherit;
   }
 

@@ -1,4 +1,4 @@
-class Message
+class Peep
 
 	include DataMapper::Resource
 
