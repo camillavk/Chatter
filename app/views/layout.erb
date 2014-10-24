@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Chatter</title>
@@ -6,16 +6,84 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-	<div class="wrapper" >
-		<%= partial :header %>
+	<nav>
+		<section id="logo">
+			<a href='/'>Chatter</a>
+		</section>
+		<section id="newpeep">
+		<a href="#" class="button" id='peepbutton'>Peep</a>
+		</section>
 		<%= partial :flash %>
-			<div id='container'>
-				<%= yield %>
-			</div>
-		</div>
-		<div class="push"></div>
-		<div class="footer">
-			<%= partial :footer %>
-		</div>
+		<% if current_user %>
+		<section id="signout">
+			Welcome, <%= current_user.name %>
+			<form method="post" action="/sessions">
+				<input type="hidden" name="_method" value="delete">
+				<input type="submit" value="Sign out" class="button">
+			</form>
+		</section>
+		<% else %>
+			<section id="signup">
+			<a href='#' id='sign-in' class='button'>Sign in!</a>
+			<a href='#' id='sign-up' class='button'>Sign up!</a>
+			</section>
+		<% end %>
+	</nav>
+	<section id='newpeepup'>
+		<h1>Enter your new peep</h1>
+			<form action='/peeps' method='post'>
+				<input type="text" name="title" placeholder="Title">
+				<input type="text" name="text" placeholder="Compose new peep">
+				<input type="submit" value="Peep" class="button" id="newpeepsubmit">
+			</form>
+	</section>
+	<section id='signinup'>
+		<h1>Please sign in</h1>
+			<form method="post" action="/sessions">
+				<input type="text" name="username" placeholder="Username">
+				<input type="password" name="password" placeholder="Password">
+				<input type="submit" value="Sign in" class="button" id="signinsubmit">
+			</form>
+	</section>
+	<section id='signupup'>
+		<h1>Please sign up</h1>
+			<form action="/users" method="post">
+				<input name="name" type="text" placeholder="Name">
+				<input name="username" type="text" placeholder="Username">
+				<input name="email" type="text" placeholder="Email">
+				<input name="password" type="password" placeholder="Password">
+				<input name="password_confirmation" type="password" placeholder="Password Confirmation">
+				<input type="submit" value="Sign up" class="button" id="signupsubmit">
+			</form>
+	</section>
+	<article id='profile'>
+		<% if current_user %>
+		<header>
+			<img src=''/>
+		</header>
+		<h1><%= current_user.username %></h1>
+		<h2><%= current_user.name %></h2>
+		<section id='newpeeps'>
+			<form action='/peeps' method='post'>
+				<input type="text" name="title" placeholder="Title">	
+				<input type="text" name="text" placeholder="Compose new peep">	
+				<input type="submit" value="Peep" class="button">	
+			</form>
+		</section>
+		<% end %>
+	</article>
+	<article id='peeps'>
+		<header>Peeps</header>
+	</article>
+	<template id='peepTemplate'>
+		<article>
+			<h1>{{title}}</h1>
+			<h2>{{text}}</h2>
+			<p>{{username}}</p>
+		</article>
+	</template>
+	<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+	<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.amd.min.js'></script>
+	<script type='text/javascript' src='interface.js'></script>
 </body>
-</html> -->
+</html>

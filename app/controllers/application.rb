@@ -1,4 +1,4 @@
 get '/' do 
 	@peeps = Peep.all
-	erb :index
+	erb :layout
 end
