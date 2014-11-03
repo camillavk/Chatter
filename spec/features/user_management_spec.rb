@@ -59,7 +59,7 @@ feature "User signs out" do
 								:password_confirmation => "cat")
 	end
 
-	xscenario "while being signed in" do
+	scenario "while being signed in" do
 		sign_in('samsam', 'cat')
 		click_button "Sign out"
 		expect(page).to have_content("Goodbye!")
