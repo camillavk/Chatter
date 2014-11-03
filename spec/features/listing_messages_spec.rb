@@ -19,7 +19,7 @@ feature "User browses the list of available messages" do
 		expect(page).to have_content("Example")
 	end
 
-	xscenario "with the author" do 
+	xscenario "with the author" do
 		visit('/')
 		sign_in('samsam', 'cat')
 		add_peep("Example", "Testing")
