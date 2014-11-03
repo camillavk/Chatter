@@ -34,14 +34,14 @@ feature "User signs in" do
 								:password_confirmation => "cat")
 	end
 
-	xscenario "with correct credentials" do
+	scenario "with correct credentials" do
 		visit '/'
 		expect(page).not_to have_content("Welcome, Sam")
 		sign_in('samsam', 'cat')
 		expect(page).to have_content("Welcome, Sam")
 	end
 
-	xscenario "with incorrect credentials" do
+	scenario "with incorrect credentials" do
 		visit '/'
 		expect(page).not_to have_content("Welcome, Sam")
 		sign_in('samsam', 'dog')
