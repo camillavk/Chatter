@@ -3,6 +3,7 @@
 <head>
 	<title>Chatter</title>
 	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
@@ -17,7 +18,7 @@
 		<% if current_user %>
 		<section id="signout">
 			Welcome, <%= current_user.name %>
-			<form method="post" action="/sessions">
+			<form class="pure-form" method="post" action="/sessions">
 				<input type="hidden" name="_method" value="delete">
 				<input type="submit" value="Sign out" class="button">
 			</form>
@@ -29,31 +30,31 @@
 			</section>
 		<% end %>
 	</nav>
-	<section id='newpeepup'>
-		<h1>Enter your new peep</h1>
-			<form action='/peeps' method='post'>
-				<input type="text" name="title" placeholder="Title">
-				<input type="text" name="text" placeholder="Compose new peep">
-				<input type="submit" value="Peep" class="button" id="newpeepsubmit">
-			</form>
-	</section>
-	<section id='signinup'>
-		<h1>Please sign in</h1>
-			<form method="post" action="/sessions">
-				<input type="text" name="username" placeholder="Username">
-				<input type="password" name="password" placeholder="Password">
-				<input type="submit" value="Sign in" class="button" id="signinsubmit">
-			</form>
-	</section>
 	<section id='signupup'>
 		<h1>Please sign up</h1>
-			<form action="/users" method="post">
+			<form class="pure-form" action="/users" method="post">
 				<input name="name" type="text" placeholder="Name">
 				<input name="username" type="text" placeholder="Username">
 				<input name="email" type="text" placeholder="Email">
 				<input name="password" type="password" placeholder="Password">
 				<input name="password_confirmation" type="password" placeholder="Password Confirmation">
 				<input type="submit" value="Sign up" class="button" id="signupsubmit">
+			</form>
+	</section>
+	<section id='signinup'>
+		<h1>Please sign in</h1>
+			<form class="pure-form" method="post" action="/sessions">
+				<input type="text" name="username" placeholder="Username">
+				<input type="password" name="password" placeholder="Password">
+				<input type="submit" value="Sign in" class="button" id="signinsubmit">
+			</form>
+	</section>
+	<section id='newpeepup'>
+		<h1>Enter your new peep</h1>
+			<form class="pure-form" action='/peeps' method='post'>
+				<input type="text" name="title" placeholder="Title">
+				<input type="text" name="text" placeholder="Compose new peep">
+				<input type="submit" value="Peep" class="button" id="newpeepsubmit">
 			</form>
 	</section>
 	<article id='profile'>
@@ -64,7 +65,7 @@
 		<h1><%= current_user.username %></h1>
 		<h2><%= current_user.name %></h2>
 		<section id='newpeeps'>
-			<form action='/peeps' method='post'>
+			<form class="pure-form" action='/peeps' method='post'>
 				<input type="text" name="title" placeholder="Title">	
 				<input type="text" name="text" placeholder="Compose new peep">	
 				<input type="submit" value="Peep" class="button">	

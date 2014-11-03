@@ -15,17 +15,21 @@ module SessionHelpers
 	end
 
 	def sign_in(username, password)
-	visit '/sessions/new'
-	fill_in :username, :with => username
-	fill_in :password, :with => password
-	click_button "Sign in"
+		visit '/'
+		within('#signinup') do
+			fill_in :username, :with => username
+			fill_in :password, :with => password
+			click_button "Sign in"
+		end
 	end
 
 	def add_peep(title, text)
-		visit 'peeps/new'
-		fill_in 'title', :with => title
-		fill_in 'text', :with => text
-		click_button "Peep"
+		visit '/'
+		within('#newpeepup') do
+			fill_in 'title', :with => title
+			fill_in 'text', :with => text
+			click_button "Peep"
+		end
 	end
 
 end
